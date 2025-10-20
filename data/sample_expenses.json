@@ -1,0 +1,38 @@
+[
+  {
+    "description": "Groceries at Fresh Mart",
+    "amount": 54.32,
+    "category": "food",
+    "timestamp": "2024-06-01T14:32:00"
+  },
+  {
+    "description": "Monthly subway pass",
+    "amount": 127.0,
+    "category": "transport",
+    "timestamp": "2024-06-02T09:12:00"
+  },
+  {
+    "description": "Streaming service bundle",
+    "amount": "$29.97",
+    "category": "entertainment",
+    "timestamp": "2024-06-03T20:45:00"
+  },
+  {
+    "description": "Coffee with team",
+    "ammount": 18.5,
+    "category": "Food",
+    "timestamp": "2024-06-04T10:15:00"
+  },
+  {
+    "description": "Cloud hosting credits",
+    "amount": 75,
+    "category": "work",
+    "timestamp": "2024-05-30T08:00:00"
+  },
+  {
+    "description": "Refund from conference",
+    "amount": -120.0,
+    "category": "income",
+    "timestamp": "2024-05-29T17:25:00"
+  }
+]
