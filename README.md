@@ -14,6 +14,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
+deactivate by running `deactivate` in your terminal.
+
 ## Provided Entrypoints
 
 - `python -m budget_tracker.cli` launches a minimal interactive prompt.
@@ -23,12 +25,6 @@ source .venv/bin/activate
 ## What To Expect
 
 The codebase mixes obvious issues (syntax errors, name typos) with more subtle logical and data quality defects. Some tests already fail; others pass even though the implementation is wrong. Not every module is fully covered, so exploratory testing is encouraged.
-
-### Rough Difficulty Guide
-
-- **Easy:** fix crashes on startup, basic parsing errors, broken imports.
-- **Medium:** incorrect calculations, mishandled edge cases, inconsistent normalization.
-- **Hard:** data races between modules, state persistence bugs, misleading tests.
 
 ## Suggested Workflow
 
