@@ -10,7 +10,7 @@ def build_summary(expenses: Iterable[Expense]) -> str:
     items = list(expenses)
     lines = []
     total = analytics.calculate_total(items)
-    lines.append(f"Total spent (rounded down): ${total:.2f}")
+    lines.append(f"Total spent: ${total:.2f}")
 
     per_category = analytics.totals_by_category(items)
     for category, value in sorted(per_category.items(), key=lambda item: item[0]):
@@ -32,7 +32,7 @@ def main() -> None:
 
     expenses = persistence.load_expenses()
     summary = build_summary(expenses)
-    print(summary, end="")
+    print(summary)
 
 
 if __name__ == "__main__":
