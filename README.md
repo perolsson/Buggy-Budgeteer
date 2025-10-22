@@ -33,4 +33,12 @@ The codebase mixes obvious issues (syntax errors, name typos) with more subtle l
 3. Inspect analytics/reporting outputs for suspicious numbers.
 4. Iterate on fixes while adding your own tests.
 
-Good luck—every discrepancy is intentional.
+## Hackathon Submission
+
+1. Fork this repository.
+2. Clone it locally.
+3. Debug and write comments explaining the bug fixes.
+4. Push changes.
+5. Send the fork URL to the submission email along with team name and team members.
+
+Good luck, every discrepancy is intentional.
