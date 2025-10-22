@@ -5,22 +5,15 @@ Buggy Budgeteer is a deliberately flawed personal budgeting helper written in pu
 ## Getting Started
 
 - Requires Python 3.9+ (no external dependencies).
-- Clone the repo, then run commands from the project root.
+    - If python is not installed on Windows, download it from Microsoft Store.
+- **Fork** and clone the repo, then run commands from the project root.
 - An intentionally inconsistent sample dataset lives at `data/sample_expenses.json`.
-- Optional: create a virtual environment, though nothing needs to be installed.
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-deactivate by running `deactivate` in your terminal.
 
 ## Provided Entrypoints
 
-- `python -m budget_tracker.cli` launches a minimal interactive prompt.
-- `python -m budget_tracker.reporting` prints a quick summary.
-- `python -m unittest discover` runs the supplied (buggy) tests.
+- `python3 -m budget_tracker.cli` launches a minimal interactive prompt.
+- `python3 -m budget_tracker.reporting` prints a quick summary.
+- `python3 -m unittest discover` runs the supplied (buggy) tests.
 
 ## What To Expect
 
