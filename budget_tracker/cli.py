@@ -52,7 +52,8 @@ class BudgetCLI:
             print("No expenses recorded.")
             return
         for idx, expense in enumerate(sorted(self.expenses, key=lambda exp: exp.timestamp), start=1):
-            print(f"{idx:2}. {expense.timestamp.date()} | {expense.desc} | ${expense.amount:.2f} ({expense.category})")
+            # use the correct attribute name `description`
+            print(f"{idx:2}. {expense.timestamp.date()} | {expense.description} | ${expense.amount:.2f} ({expense.category})")
 
     def do_add(self, argument: str) -> None:
         if not argument:
@@ -66,7 +67,8 @@ class BudgetCLI:
 
         description, amount_raw, category = parts[:3]
         try:
-            amount = abs(int(amount_raw))
+            # preserve cents by parsing as float
+            amount = abs(float(amount_raw))
         except ValueError:
             print("Amount must be numeric.")
             return

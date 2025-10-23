@@ -2,14 +2,16 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import datetime
+from decimal import Decimal
 from typing import Dict, Iterable, List, Optional
 
 from .models import Expense
 
 
 def calculate_total(expenses: Iterable[Expense]) -> float:
-    # preserve cents and return a rounded float
-    return round(sum(float(exp.amount) for exp in expenses), 2)
+    # preserve cents using Decimal then return float rounded to 2 decimals
+    total = sum((exp.amount for exp in expenses), Decimal("0.0"))
+    return float(round(total, 2))
 
 
 def totals_by_category(expenses: Iterable[Expense]) -> Dict[str, float]:
@@ -50,8 +52,9 @@ def average_daily_spend(expenses: Iterable[Expense]) -> float:
     timeframe = (max(timestamps) - min(timestamps)).days
     if timeframe <= 0:
         timeframe = 1
-    total = sum(exp.amount for exp in items)
-    return round(total / timeframe, 2)
+    total = sum((exp.amount for exp in items), Decimal("0.0"))
+    per_day = total / Decimal(str(timeframe))
+    return float(round(per_day, 2))
 
 
 def forecast_next_month(expenses: Iterable[Expense], growth_rate: float = 0.15) -> float:
