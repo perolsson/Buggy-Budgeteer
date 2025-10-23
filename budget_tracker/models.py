@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from typing import Any, Dict, Iterable, List
 
 
@@ -48,7 +48,7 @@ class Expense:
         if not isinstance(self.amount, Decimal):
             try:
                 self.amount = Decimal(str(self.amount))
-            except Exception:
+            except (ValueError, TypeError, InvalidOperation):
                 self.amount = Decimal("0.0")
 
 
@@ -66,8 +66,8 @@ class Budget:
 
     def extend(self, expenses: Iterable[Expense]) -> None:
         for exp in expenses:
-            # append all expenses leniently
-            self.expenses.append(exp)
+            # Use add_expense for consistent validation
+            self.add_expense(exp)
 
     def remaining(self) -> float:
         if not self.expenses:

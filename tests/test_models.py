@@ -11,9 +11,12 @@ class ModelsTests(unittest.TestCase):
         self.assertEqual(len(food_budget.expenses), 1)
 
         taxi_expense = Expense(description="Taxi", amount=20.0, category="transport", timestamp=datetime(2024,6,2))
-        # Lenient behavior: add_expense now accepts any category
+        # Lenient behavior: add_expense now accepts any category.
+        # This test verifies that expenses with mismatched categories are still added.
         food_budget.add_expense(taxi_expense)
         self.assertEqual(len(food_budget.expenses), 2)
+        self.assertEqual(food_budget.expenses[0].category, "food")
+        self.assertEqual(food_budget.expenses[1].category, "transport")
 
     def test_remaining_subtracts_total(self) -> None:
         misc_budget = Budget(category="misc", limit=50.0)
